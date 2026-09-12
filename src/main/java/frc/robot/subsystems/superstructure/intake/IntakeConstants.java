@@ -7,9 +7,9 @@ import edu.wpi.first.units.measure.Distance;
 import edu.wpi.first.units.measure.Mass;
 
 public class IntakeConstants {
-    public static final int ROLLER_MOTOR_ID = 999;
+    public static final int ROLLER_MOTOR_ID = 999; //not reak motor id
 
-    public static final int ROLLER_CURRENT_LIMIT = 10;
+    public static final int ROLLER_CURRENT_LIMIT = 10; //dummy current limit
+
+    public static final DCMotor ROLLER_MOTOR_TYPE = DCMotor.getNeo550(1);
 }
-
-public static final DCMotor ROLLER_MOTOR_TYPE = DCMotor.getNeo550(1);

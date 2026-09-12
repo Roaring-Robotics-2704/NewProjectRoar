@@ -1,7 +1,5 @@
 package frc.robot.subsystems.superstructure.intake;
 
-import org.littletonrobotics.junction.AutoLog;
-
 import static edu.wpi.first.units.Units.Amps;
 import static edu.wpi.first.units.Units.Inches;
 import static edu.wpi.first.units.Units.InchesPerSecond;
@@ -17,13 +15,11 @@ import edu.wpi.first.units.measure.Voltage;
 
 public interface IntakeIO {
     
-    @AutoLog
     public static class IntakeIOInputs {
 
         public MutVoltage rollerAppliedVoltage = Volts.mutable(0);
         public MutCurrent rollerCurrentDraw = Amps.mutable(0);
         public MutAngularVelocity rollerVelocity = RotationsPerSecond.mutable(0);
-
 
     }
 
@@ -31,7 +27,7 @@ public interface IntakeIO {
 
     }
 
-    default void stopMotors() {
+    default void stopMotor() {
 
     }
 
