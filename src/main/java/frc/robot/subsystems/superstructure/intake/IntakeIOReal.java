@@ -8,9 +8,12 @@ import static edu.wpi.first.units.Units.Volts;
 import edu.wpi.first.units.measure.Distance;
 import edu.wpi.first.units.measure.Voltage;
 import static frc.robot.subsystems.superstructure.intake.IntakeConstants.ROLLER_CURRENT_LIMIT;
+import edu.wpi.first.math.system.plant.DCMotor;
 
 import edu.wpi.first.math.filter.LinearFilter;
 
-public class IntakeIOReal {
-    
+public class IntakeIOReal implements IntakeIO{
+    private DCMotor intakeMotor;
+
+
 }
