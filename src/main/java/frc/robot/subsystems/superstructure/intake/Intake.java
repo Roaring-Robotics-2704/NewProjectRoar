@@ -24,7 +24,7 @@ public class Intake extends SubsystemBase {
     }
 
     public Command stopIntake() {
-        return Command.run(() -> setRollersEnabled(false));
+        return Commands.run(() -> setRollersEnabled(false));
     }
 
     public Command intake() {
