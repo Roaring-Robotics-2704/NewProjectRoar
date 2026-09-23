@@ -12,11 +12,15 @@ import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIONavX;
 import frc.robot.subsystems.drive.ModuleIO;
 import frc.robot.subsystems.drive.ModuleIOSpark;
+import frc.robot.subsystems.superstructure.intake.Intake;
+import frc.robot.subsystems.superstructure.intake.IntakeIO;
+import frc.robot.subsystems.superstructure.intake.IntakeIOReal;
 
 public class RobotContainer {
     private static final double controllerDeadband = 0.08;
 
     private final Drive drive;
+    private final Intake intake;
     private final CommandXboxController controller = new CommandXboxController(0);
 
     public RobotContainer() {
