@@ -22,11 +22,11 @@ public class TurretConstants {
     public static final double SHOOTER_KA = 30.0;
     public static final double SHOOTER_KS = 0.0;
 
-    public static final AngularVelocity SHOOTER_TARGET = 
+    public static final AngularVelocity SHOOTER_TARGET =
         RPM.of(2800); // add these if we need them, desired speed
-    public static final AngularVelocity SHOOTER_IDLE = 
+    public static final AngularVelocity SHOOTER_IDLE =
         RPM.of(1400); // add these if we need them, idle speed
-    public static final AngularVelocity SHOOTER_TOLERANCE = RotationsPerSecond.of(50);    
+    public static final AngularVelocity SHOOTER_TOLERANCE = RotationsPerSecond.of(50);
     // GET REAL VALUES FOR FOLLOWING:
     public static final Angle MIN_ANGLE = Degrees.of(28.048335); // lowest angle shooter can reach
     public static final Angle MAX_ANGLE = Degrees.of(59.874070); // largest angle shooter can reach
