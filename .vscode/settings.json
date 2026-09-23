@@ -1,13 +1,4 @@
 {
-	"java.configuration.runtimes": [
-		{
-			"name": "JavaSE-17",
-			"path": "/home/admin/wpilib/2026/jdk",
-			"default": true
-		}
-	],
-	"java.import.gradle.java.home": "/home/admin/wpilib/2026/jdk",
-	"java.jdt.ls.java.home": "/home/admin/wpilib/2026/jdk",
 	"terminal.integrated.env.linux": {
 		"JAVA_HOME": "/home/admin/wpilib/2026/jdk",
 		"PATH": "/home/admin/wpilib/2026/jdk/bin:${env:PATH}"
