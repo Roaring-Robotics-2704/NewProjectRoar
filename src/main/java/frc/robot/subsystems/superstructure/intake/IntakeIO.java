@@ -5,6 +5,9 @@ import static edu.wpi.first.units.Units.Inches;
 import static edu.wpi.first.units.Units.InchesPerSecond;
 import static edu.wpi.first.units.Units.RotationsPerSecond;
 import static edu.wpi.first.units.Units.Volts;
+
+import org.littletonrobotics.junction.AutoLog;
+
 import edu.wpi.first.units.measure.Distance;
 import edu.wpi.first.units.measure.MutAngularVelocity;
 import edu.wpi.first.units.measure.MutCurrent;
@@ -15,11 +18,11 @@ import edu.wpi.first.units.measure.Voltage;
 
 public interface IntakeIO {
     
-    public static class IntakeIOInputs {
+    @AutoLog public static class IntakeIOInputs {
 
-        public MutVoltage rollerAppliedVoltage = Volts.mutable(0);
-        public MutCurrent rollerCurrentDraw = Amps.mutable(0);
-        public MutAngularVelocity rollerVelocity = RotationsPerSecond.mutable(0);
+        public MutVoltage intakeAppliedVoltage = Volts.mutable(0);
+        public MutCurrent intakeCurrentDraw = Amps.mutable(0);
+        public MutAngularVelocity intakeVelocity = RotationsPerSecond.mutable(0);
 
     }
 

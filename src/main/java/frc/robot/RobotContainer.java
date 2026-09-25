@@ -12,15 +12,25 @@ import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIONavX;
 import frc.robot.subsystems.drive.ModuleIO;
 import frc.robot.subsystems.drive.ModuleIOSpark;
+import frc.robot.subsystems.superstructure.indexer.Indexer;
+import frc.robot.subsystems.superstructure.indexer.IndexerIO;
+import frc.robot.subsystems.superstructure.indexer.IndexerIOReal;
+import frc.robot.subsystems.superstructure.indexer.IndexerIOSim;
 import frc.robot.subsystems.superstructure.intake.Intake;
 import frc.robot.subsystems.superstructure.intake.IntakeIO;
 import frc.robot.subsystems.superstructure.intake.IntakeIOReal;
+import frc.robot.subsystems.superstructure.intake.IntakeIOSim;
+import frc.robot.subsystems.superstructure.turret.Turret;
+import frc.robot.subsystems.superstructure.turret.TurretIOReal;
+import frc.robot.subsystems.superstructure.turret.TurretIOSim;
 
 public class RobotContainer {
     private static final double controllerDeadband = 0.08;
 
     private final Drive drive;
     private final Intake intake;
+    private final Indexer indexer;
+    private final Turret turret;
     private final CommandXboxController controller = new CommandXboxController(0);
 
     public RobotContainer() {
@@ -39,6 +49,27 @@ public class RobotContainer {
                     new ModuleIO() {},
                     new ModuleIO() {},
                     pose -> {});
+        };
+
+        intake = switch (Constants.currentMode) {
+            case REAL -> new Intake(
+                    new IntakeIOReal());
+            case SIM, REPLAY -> new Intake(
+                    new IntakeIOSim());
+        };
+
+        indexer = switch (Constants.currentMode) {
+            case REAL -> new Indexer(
+                    new IndexerIOReal());
+            case SIM, REPLAY -> new Indexer(
+                    new IndexerIOSim());
+        };
+
+        turret = switch (Constants.currentMode) {
+            case REAL -> new Turret(
+                    new TurretIOReal());
+            case SIM, REPLAY -> new Turret(
+                    new TurretIOSim());
         };
 
         configureButtonBindings();
@@ -65,8 +96,8 @@ public class RobotContainer {
         controller.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
 
         controller.start().onTrue(Commands.runOnce(
-                        () -> drive.resetOdometry(new Pose2d(drive.getPose().getTranslation(), new Rotation2d())),
-                        drive)
+                () -> drive.resetOdometry(new Pose2d(drive.getPose().getTranslation(), new Rotation2d())),
+                drive)
                 .ignoringDisable(true));
     }
 
@@ -74,7 +105,9 @@ public class RobotContainer {
         return Commands.none();
     }
 
-    public void resetSimulationField() {}
+    public void resetSimulationField() {
+    }
 
-    public void updateSimulation() {}
+    public void updateSimulation() {
+    }
 }

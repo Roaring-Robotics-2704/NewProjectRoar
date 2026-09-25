@@ -4,4 +4,7 @@ import frc.robot.subsystems.superstructure.indexer.IndexerConstants;
 
 public class IndexerIOReal implements IndexerIO {
 
+    public IndexerIOReal() {
+        
+    }
 }
