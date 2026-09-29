@@ -27,14 +27,21 @@ public class RobotContainer {
                     new ModuleIOSpark(1),
                     new ModuleIOSpark(2),
                     new ModuleIOSpark(3),
-                    pose -> {});
+                    pose -> {
+                    });
             case SIM, REPLAY -> new Drive(
-                    new GyroIO() {},
-                    new ModuleIO() {},
-                    new ModuleIO() {},
-                    new ModuleIO() {},
-                    new ModuleIO() {},
-                    pose -> {});
+                    new GyroIO() {
+                    },
+                    new ModuleIO() {
+                    },
+                    new ModuleIO() {
+                    },
+                    new ModuleIO() {
+                    },
+                    new ModuleIO() {
+                    },
+                    pose -> {
+                    });
         };
 
         configureButtonBindings();
