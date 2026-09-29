@@ -1,11 +1,20 @@
 {
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-17",
-      "path": "C:\\Users\\Public\\wpilib\\2026\\jdk",
-      "default": true
-    }
-  ],
-  "java.import.gradle.java.home": "C:\\Users\\Public\\wpilib\\2026\\jdk",
-  "java.jdt.ls.java.home": "C:\\Users\\Public\\wpilib\\2026\\jdk"
+	"terminal.integrated.env.linux": {
+		"JAVA_HOME": "/home/admin/wpilib/2026/jdk",
+		"PATH": "/home/admin/wpilib/2026/jdk/bin:${env:PATH}"
+	},
+	"terminal.integrated.profiles.linux": {
+		"JavaSE-17 LTS": {
+			"overrideName": true,
+			"env": {
+				"JAVA_HOME": "/home/admin/wpilib/2026/jdk"
+			},
+			"path": "bash",
+			"args": [
+				"--rcfile",
+				"/home/admin/wpilib/2026/vscode/VSCode-linux-x64/data/user-data/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
+			]
+		}
+	},
+	"terminal.integrated.defaultProfile.linux": "JavaSE-17 LTS"
 }

@@ -61,8 +61,8 @@ public class RobotContainer {
         controller.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
 
         controller.start().onTrue(Commands.runOnce(
-                        () -> drive.resetOdometry(new Pose2d(drive.getPose().getTranslation(), new Rotation2d())),
-                        drive)
+                () -> drive.resetOdometry(new Pose2d(drive.getPose().getTranslation(), new Rotation2d())),
+                drive)
                 .ignoringDisable(true));
     }
 
@@ -70,7 +70,9 @@ public class RobotContainer {
         return Commands.none();
     }
 
-    public void resetSimulationField() {}
+    public void resetSimulationField() {
+    }
 
-    public void updateSimulation() {}
+    public void updateSimulation() {
+    }
 }
