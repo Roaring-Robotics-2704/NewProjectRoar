@@ -14,7 +14,10 @@ public class TurretConstants {
 
     public static final Voltage MAX_SHOOTER_VOLTAGE = Volts.of(10); // max # of voltage in shooter, change dummy value later 
 
-    public static final int CURRENT_LIMIT = 40; // shooter speed limit, this is a dummy value, change this later
+    public static final int AIM_MOTOR_CURRENT_LIMIT = 40; // shooter speed limit, this is a dummy value, change this later
+    public static final int FLYWHEEL_LEFT_CURRENT_LIMIT = 40; // shooter speed limit, this is a dummy value, change this later
+    public static final int FLYWHEEL_RIGHT_CURRENT_LIMIT = 40; // shooter speed limit, this is a dummy value, change this later
+    public static final int HOOD_ANGLE_MOTOR_CURRENT_LIMIT = 40; // shooter speed limit, this is a dummy value, change this later
 
     public static final double SHOOTER_KP = 0.0; // more error = more power
     public static final double SHOOTER_KD = 0.0; // predicts ROC of error, change these PID values later as needed

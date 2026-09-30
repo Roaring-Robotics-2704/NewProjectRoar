@@ -4,10 +4,13 @@ import static edu.wpi.first.units.Units.*;
 
 import org.littletonrobotics.junction.AutoLog;
 
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkMaxConfig;
+
 import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.units.measure.MutAngle;
 import edu.wpi.first.units.measure.MutAngularVelocity;
-import edu.wpi.first.units.measure.MutAngularAcceleration;
+//import edu.wpi.first.units.measure.MutAngularAcceleration;
 import edu.wpi.first.units.measure.MutVoltage;
 import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.units.measure.MutCurrent;
@@ -20,22 +23,25 @@ public interface TurretIO {
         public MutAngle hoodAngle = Degrees.mutable(0);
         public MutAngle turretAngle = Radians.mutable(0);
 
-        public MutAngularVelocity flywheelVelocity = DegreesPerSecond.mutable(0);
+        public MutAngularVelocity flywheelVelocityAvg = DegreesPerSecond.mutable(0);
         public MutAngularVelocity leftVelocity = DegreesPerSecond.mutable(0);
         public MutAngularVelocity rightVelocity = DegreesPerSecond.mutable(0);
     
-        public MutAngularAcceleration flywheelAcceleration = DegreesPerSecondPerSecond.mutable(0);
-        public MutAngularAcceleration leftAcceleration = DegreesPerSecondPerSecond.mutable(0);
-        public MutAngularAcceleration rightAcceleration = DegreesPerSecondPerSecond.mutable(0);
+        //public MutAngularAcceleration flywheelAcceleration = DegreesPerSecondPerSecond.mutable(0);
+        //public MutAngularAcceleration leftAcceleration = DegreesPerSecondPerSecond.mutable(0);
+        //public MutAngularAcceleration rightAcceleration = DegreesPerSecondPerSecond.mutable(0);
 
+        public MutVoltage averageFlywheelAppliedVolts = Volt.mutable(0);
         public MutVoltage leftFlywheelAppliedVolts = Volt.mutable(0);
         public MutVoltage rightFlywheelAppliedVolts = Volt.mutable(0);
 
+        public MutCurrent averageFlywheelCurrentAmps = Amps.mutable(0);
         public MutCurrent leftFlywheelCurrentAmps = Amps.mutable(0);
         public MutCurrent rightFlywheelCurrentAmps = Amps.mutable(0);
 
-        public MutTemperature rightTemp = Fahrenheit.mutable(0);
+        public MutTemperature averageTemp = Fahrenheit.mutable(0);
         public MutTemperature lefTemp = Fahrenheit.mutable(0);
+        public MutTemperature rightTemp = Fahrenheit.mutable(0);
 
         public boolean atTargetVelocity = false;
         public boolean atTargetHoodAngle = false;
@@ -47,23 +53,26 @@ public interface TurretIO {
     public default void updateInputs(TurretIOInputs inputs) {
     }
 
-    // voltage methods for flywheel and hood
-    default void setFlywheelVoltage(Voltage voltage) {
+
+    public default void setFlywheelVoltage(Voltage voltage) {
+    }
+
+    public default void stopFlywheel() {
     }
     
-    default void setHoodAngle(Angle angle) {
+    public default void setHoodAngle(double angle) {
     }
 
     /**
      * Sets the turret to the desired angle IN RADIANS.
      * @param angle The angle IN RADIANS.
     */
-    default void setTurretAngle(Angle angle) {
+    public default void setTurretAngle(double angle) {
     }
 
-    default void setFlywheelVelocity(AngularVelocity velocity) {
+    public default void setFlywheelVelocity(double velocity) {
     }
 
-    default void setPID(double kP, double kI, double kD, double kS, double kV, double kA) {
+    public default void setPID(SparkMax motor, SparkMaxConfig motorConfig, double kP, double kI, double kD, double kS, double kV, double kA) {
     }
 }
