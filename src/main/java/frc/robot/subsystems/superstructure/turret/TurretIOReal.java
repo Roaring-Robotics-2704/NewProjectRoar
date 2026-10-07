@@ -190,7 +190,7 @@ public class TurretIOReal implements TurretIO {
     @Override
     public void setTurretAngle(double angle) {
         hoodClosedLoopController.setSetpoint(Radians.of(angle).in(Rotations), ControlType.kPosition);
-        targetTurretAngle = Degrees.of(angle);
+        targetTurretAngle = Radians.of(angle);
     }
 
     @Override
