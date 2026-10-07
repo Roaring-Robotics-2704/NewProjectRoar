@@ -38,23 +38,23 @@ public class TurretIOReal implements TurretIO {
 
 
 
-    private SparkMax turretAimMotor;
-    private SparkMaxConfig turretAimMotorConfig;
+    public SparkMax turretAimMotor;
+    public SparkMaxConfig turretAimMotorConfig;
     private AbsoluteEncoder turretAimEncoder;
     private SparkClosedLoopController turretClosedLoopController;
 
-    private SparkMax flywheelMotorLeft;
-    private SparkMaxConfig flywheelMotorLeftConfig;
+    public SparkMax flywheelMotorLeft;
+    public SparkMaxConfig flywheelMotorLeftConfig;
     private AbsoluteEncoder flywheelLeftEncoder;
     private SparkClosedLoopController flywheelLeftClosedLoopController;
 
-    private SparkMax flywheelMotorRight;
-    private SparkMaxConfig flywheelMotorRightConfig;
+    public SparkMax flywheelMotorRight;
+    public SparkMaxConfig flywheelMotorRightConfig;
     private AbsoluteEncoder flywheelRightEncoder;
     private SparkClosedLoopController flywheelRightClosedLoopController;
 
-    private SparkMax hoodAngleMotor;
-    private SparkMaxConfig hoodAngleMotorConfig;
+    public SparkMax hoodAngleMotor;
+    public SparkMaxConfig hoodAngleMotorConfig;
     private AbsoluteEncoder hoodAngleEncoder;
     private SparkClosedLoopController hoodClosedLoopController;
 
@@ -148,10 +148,14 @@ public class TurretIOReal implements TurretIO {
         inputs.rightFlywheelCurrentAmps.mut_replace(flywheelMotorRight.getOutputCurrent(), Amps);
 
         inputs.averageTemp.mut_replace(
-            (flywheelMotorLeft.getMotorTemperature() + flywheelMotorRight.getMotorTemperature()) / 2,
+            Celsius.of((flywheelMotorLeft.getMotorTemperature() + flywheelMotorRight.getMotorTemperature()) / 2).in(Fahrenheit),
             Fahrenheit);
-        inputs.lefTemp.mut_replace(flywheelMotorLeft.getMotorTemperature(), Fahrenheit);
-        inputs.rightTemp.mut_replace(flywheelMotorRight.getMotorTemperature(), Fahrenheit);
+        inputs.lefTemp.mut_replace(
+            Celsius.of(flywheelMotorLeft.getMotorTemperature()).in(Fahrenheit),
+            Fahrenheit);
+        inputs.rightTemp.mut_replace(
+            Celsius.of(flywheelMotorRight.getMotorTemperature()).in(Fahrenheit),
+            Fahrenheit);
 
         inputs.atTargetVelocity = targetVelocity.isEquivalent(RotationsPerSecond.of(avgVelocity));
         inputs.atTargetHoodAngle = (targetHoodAngle.magnitude() - Rotations.of(hoodAngle).in(Degrees) <= Measure.EQUIVALENCE_THRESHOLD);
@@ -183,14 +187,24 @@ public class TurretIOReal implements TurretIO {
         targetHoodAngle = Degrees.of(angle);
     }
 
+    @Override
+    public void stopHoodMotor() {
+        hoodAngleMotor.stopMotor();
+    }
+
     /**
      * Sets the turret to the desired angle IN RADIANS.
      * @param angle The angle IN RADIANS.
     */
     @Override
     public void setTurretAngle(double angle) {
-        hoodClosedLoopController.setSetpoint(Radians.of(angle).in(Rotations), ControlType.kPosition);
+        turretClosedLoopController.setSetpoint(Radians.of(angle).in(Rotations), ControlType.kPosition);
         targetTurretAngle = Radians.of(angle);
+    }
+
+    @Override
+    public void stopTurretAngleMotor() {
+        turretAimMotor.stopMotor();
     }
 
     @Override

@@ -61,7 +61,14 @@ public interface TurretIO {
     public default void stopFlywheel() {
     }
     
+    /**
+     * Sets the hood to the desired angle IN DEGREES.
+     * @param angle The angle IN DEGREES.
+    */
     public default void setHoodAngle(double angle) {
+    }
+
+    public default void stopHoodMotor() {
     }
 
     /**
@@ -69,6 +76,9 @@ public interface TurretIO {
      * @param angle The angle IN RADIANS.
     */
     public default void setTurretAngle(double angle) {
+    }
+
+    public default void stopTurretAngleMotor() {
     }
 
     public default void setFlywheelVelocity(double velocity) {

@@ -48,6 +48,7 @@ task(replayWatch, type: JavaExec) {
 }
 
 dependencies {
+    annotationProcessor wpi.java.deps.wpilibAnnotations()
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
 
