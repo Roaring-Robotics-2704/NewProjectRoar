@@ -12,11 +12,15 @@ import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIONavX;
 import frc.robot.subsystems.drive.ModuleIO;
 import frc.robot.subsystems.drive.ModuleIOSpark;
+import frc.robot.subsystems.superstructure.turret.Turret;
+import frc.robot.subsystems.superstructure.turret.TurretIOReal;
+import frc.robot.subsystems.superstructure.turret.TurretIOSim;
 
 public class RobotContainer {
     private static final double controllerDeadband = 0.08;
 
     private final Drive drive;
+    private final Turret turret;
     private final CommandXboxController controller = new CommandXboxController(0);
 
     public RobotContainer() {
@@ -42,6 +46,13 @@ public class RobotContainer {
                     },
                     pose -> {
                     });
+        };
+
+        turret = switch (Constants.currentMode) {
+            case REAL -> new Turret(
+                    new TurretIOReal());
+            case SIM, REPLAY -> new Turret(
+                    new TurretIOSim());
         };
 
         configureButtonBindings();

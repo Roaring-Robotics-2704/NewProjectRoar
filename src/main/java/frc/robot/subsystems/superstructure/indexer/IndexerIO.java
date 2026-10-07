@@ -11,8 +11,9 @@ import edu.wpi.first.units.measure.MutVoltage;
 import edu.wpi.first.units.measure.Voltage;
 
 public interface IndexerIO {
-    
-    @AutoLog public static class IndexerIOInputs {
+
+    @AutoLog
+    public static class IndexerIOInputs {
         public MutCurrent currentDraw = Amps.mutable(0);
         public MutVoltage appliedVoltage = Volts.mutable(0);
         public MutAngularVelocity motorVelocity = RotationsPerSecond.mutable(0);

@@ -11,5 +11,4 @@ public class Indexer extends SubsystemBase {
         this.indexerIO = indexerIO;
     }
 
-
 }

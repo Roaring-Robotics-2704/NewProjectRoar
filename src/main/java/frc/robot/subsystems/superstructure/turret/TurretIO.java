@@ -7,7 +7,7 @@ import org.littletonrobotics.junction.AutoLog;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
-import edu.wpi.first.units.measure.AngularVelocity;
+//import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.units.measure.MutAngle;
 import edu.wpi.first.units.measure.MutAngularVelocity;
 //import edu.wpi.first.units.measure.MutAngularAcceleration;
@@ -15,11 +15,12 @@ import edu.wpi.first.units.measure.MutVoltage;
 import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.units.measure.MutCurrent;
 import edu.wpi.first.units.measure.MutTemperature;
-import edu.wpi.first.units.measure.Angle;
+//import edu.wpi.first.units.measure.Angle;
 
 public interface TurretIO {
     
-    @AutoLog public static class TurretIOInputs {
+    @AutoLog
+    public static class TurretIOInputs {
         public MutAngle hoodAngle = Degrees.mutable(0);
         public MutAngle turretAngle = Radians.mutable(0);
 
