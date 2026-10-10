@@ -210,7 +210,7 @@ public class TurretIOReal implements TurretIO {
     @Override
     public void setFlywheelVelocity(double angularVelocity) {
         flywheelLeftClosedLoopController.setSetpoint(angularVelocity, ControlType.kVelocity);
-        flywheelLeftClosedLoopController.setSetpoint(angularVelocity, ControlType.kVelocity);
+        flywheelRightClosedLoopController.setSetpoint(angularVelocity, ControlType.kVelocity);
         targetVelocity = RotationsPerSecond.of(angularVelocity);
     }
 
