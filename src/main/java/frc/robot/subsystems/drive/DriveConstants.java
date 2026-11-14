@@ -43,20 +43,20 @@ public class DriveConstants {
     public static final int pigeonCanId = 9;
 
     // Front left module
-    public static final int frontLeftDriveCanId = 1;
-    public static final int frontLeftTurnCanId = 2;
-
-    // Front right module
-    public static final int frontRightDriveCanId = 5;
-    public static final int frontRightTurnCanId = 6;
+    public static final int frontLeftDriveCanId = 16;
+    public static final int frontLeftTurnCanId = 8;
 
     // Back left module
-    public static final int backLeftDriveCanId = 3;
-    public static final int backLeftTurnCanId = 4;
+    public static final int backLeftDriveCanId = 5;
+    public static final int backLeftTurnCanId = 6;
+
+    // Front right module
+    public static final int frontRightDriveCanId = 3;
+    public static final int frontRightTurnCanId = 4;
 
     // Back right module
-    public static final int backRightDriveCanId = 7;
-    public static final int backRightTurnCanId = 8;
+    public static final int backRightDriveCanId = 1;
+    public static final int backRightTurnCanId = 2;
 
     // Drive motor configuration
     public static final int driveMotorCurrentLimit = 60;

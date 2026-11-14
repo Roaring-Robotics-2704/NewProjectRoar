@@ -38,10 +38,10 @@ public class TurretConstants {
 
     public static final Voltage MAX_TURRET_AIM_VOLTAGE = Volts.of(10); //TODO get an actual value here
 
-    public static final int TURRET_AIM_MOTOR_CAN_ID = 1000; //TODO update these to real CAN IDs
-    public static final int FLYWHEEL_MOTOR_LEFT_CAN_ID = 1001;
-    public static final int FLYWHEEL_MOTOR_RIGHT_CAN_ID = 1002;
-    public static final int HOOD_ANGLE_MOTOR_CAN_ID = 1003;
+    public static final int TURRET_AIM_MOTOR_CAN_ID = 22;
+    public static final int FLYWHEEL_MOTOR_LEFT_CAN_ID = 18;
+    public static final int FLYWHEEL_MOTOR_RIGHT_CAN_ID = 17;
+    public static final int HOOD_ANGLE_MOTOR_CAN_ID = 20;
 
     public static final DCMotor TURRET_AIM_MOTOR_TYPE = DCMotor.getNEO(1);
     public static final DCMotor FLYWHEEL_MOTOR_GROUP_TYPE = DCMotor.getNEO(2);
